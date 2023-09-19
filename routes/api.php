@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\UsuarioController;
+use App\Http\Controllers\ModeradorController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -24,3 +25,9 @@ Route::get('usuario/{id}', [UsuarioController::class, 'get']);
 Route::post('usuario', [UsuarioController::class, 'create']);
 Route::put('usuario/{id}', [UsuarioController::class, 'update']);
 Route::delete('usuario/{id}', [UsuarioController::class, 'delete']);
+
+Route::get('moderador', [ModeradorController::class, 'get_all']);
+Route::get('moderador/{email}', [ModeradorController::class, 'get']);
+Route::post('moderador', [ModeradorController::class, 'create']);
+Route::put('moderador/{email}', [ModeradorController::class, 'update']);
+Route::delete('moderador/{email}', [ModeradorController::class, 'delete']);
