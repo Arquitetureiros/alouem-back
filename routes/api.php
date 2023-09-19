@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\UsuarioController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -17,3 +18,9 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('usuario', [UsuarioController::class, 'get_all']);
+Route::get('usuario/{id}', [UsuarioController::class, 'get']);
+Route::post('usuario', [UsuarioController::class, 'create']);
+Route::put('usuario/{id}', [UsuarioController::class, 'update']);
+Route::delete('usuario/{id}', [UsuarioController::class, 'delete']);
