@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\ModeradorController;
+use App\Http\Controllers\PublicacaoController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -31,3 +32,9 @@ Route::get('moderador/{email}', [ModeradorController::class, 'get']);
 Route::post('moderador', [ModeradorController::class, 'create']);
 Route::put('moderador/{email}', [ModeradorController::class, 'update']);
 Route::delete('moderador/{email}', [ModeradorController::class, 'delete']);
+
+Route::get('publicacao', [PublicacaoController::class, 'get_all']);
+Route::get('publicacao/{id}', [PublicacaoController::class, 'get']);
+Route::post('publicacao', [PublicacaoController::class, 'create']);
+Route::put('publicacao/{id}', [PublicacaoController::class, 'update']);
+Route::delete('publicacao/{id}', [PublicacaoController::class, 'delete']);
