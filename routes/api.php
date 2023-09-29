@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\ModeradorController;
 use App\Http\Controllers\PublicacaoController;
+use App\Http\Controllers\FotoController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -38,3 +39,9 @@ Route::get('publicacao/{id}', [PublicacaoController::class, 'get']);
 Route::post('publicacao', [PublicacaoController::class, 'create']);
 Route::put('publicacao/{id}', [PublicacaoController::class, 'update']);
 Route::delete('publicacao/{id}', [PublicacaoController::class, 'delete']);
+
+Route::get('foto', [FotoController::class, 'get_all']);
+Route::get('foto/{id}', [FotoController::class, 'get']);
+Route::post('foto', [FotoController::class, 'create']);
+Route::put('foto/{id}', [FotoController::class, 'update']);
+Route::delete('foto/{id}', [FotoController::class, 'delete']);
