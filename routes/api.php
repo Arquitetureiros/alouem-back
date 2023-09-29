@@ -7,6 +7,7 @@ use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\ModeradorController;
 use App\Http\Controllers\PublicacaoController;
 use App\Http\Controllers\FotoController;
+use App\Http\Controllers\ComentarioController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -45,3 +46,9 @@ Route::get('foto/{id}', [FotoController::class, 'get']);
 Route::post('foto', [FotoController::class, 'create']);
 Route::put('foto/{id}', [FotoController::class, 'update']);
 Route::delete('foto/{id}', [FotoController::class, 'delete']);
+
+Route::get('comentario', [ComentarioController::class, 'get_all']);
+Route::get('comentario/{id}', [ComentarioController::class, 'get']);
+Route::post('comentario', [ComentarioController::class, 'create']);
+Route::put('comentario/{id}', [ComentarioController::class, 'update']);
+Route::delete('comentario/{id}', [ComentarioController::class, 'delete']);
