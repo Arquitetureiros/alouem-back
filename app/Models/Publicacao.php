@@ -13,7 +13,7 @@ class Publicacao extends Model
     protected $primaryKey = "IdPublicacao";
     public $incrementing = true;
 
-    protected $fillable = [ "Titulo", "descricao", "fk_IdEstado", "VotosPositivos", "VotosNegativos", "fk_IdUsuario"];
+    protected $fillable = [ "Titulo", "descricao", "Endereco", "fk_IdEstado", "VotosPositivos", "VotosNegativos", "fk_IdUsuario"];
 
     public $timestamps = false;
 }
