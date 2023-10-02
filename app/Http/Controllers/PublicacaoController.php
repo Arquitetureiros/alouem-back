@@ -37,6 +37,7 @@ class PublicacaoController extends Controller
         $publicacao = new Publicacao;
         $publicacao->Titulo         = $request->Titulo;
         $publicacao->descricao      = $request->descricao;
+        $publicacao->Endereco      = $request->Endereco;
         $publicacao->fk_IdEstado       = $request->fk_IdEstado;
         $publicacao->VotosPositivos = $request->VotosPositivos;
         $publicacao->VotosNegativos = $request->VotosNegativos;
@@ -55,6 +56,7 @@ class PublicacaoController extends Controller
             $publicacao = Publicacao::find($id);
             $publicacao->Titulo =   is_null($request->Titulo) ? $publicacao->Titulo : $request->Titulo;
             $publicacao->descricao =   is_null($request->descricao) ? $publicacao->descricao : $request->descricao;
+            $publicacao->Endereco =   is_null($request->Endereco) ? $publicacao->Endereco : $request->Endereco;
             $publicacao->fk_IdEstado    =   is_null($request->fk_IdEstado)    ? $publicacao->fk_IdEstado    : $request->fk_IdEstado;
             $publicacao->VotosPositivos  =   is_null($request->VotosPositivos)  ? $publicacao->VotosPositivos  : $request->VotosPositivos;
             $publicacao->VotosNegativos  =   is_null($request->VotosNegativos)  ? $publicacao->VotosNegativos  : $request->VotosNegativos;
