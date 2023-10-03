@@ -7,6 +7,7 @@ use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\ModeradorController;
 use App\Http\Controllers\PublicacaoController;
 use App\Http\Controllers\FotoController;
+use App\Http\Controllers\ComentarioController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -27,6 +28,7 @@ Route::get('usuario/{id}', [UsuarioController::class, 'get']);
 Route::post('usuario', [UsuarioController::class, 'create']);
 Route::put('usuario/{id}', [UsuarioController::class, 'update']);
 Route::delete('usuario/{id}', [UsuarioController::class, 'delete']);
+Route::post('validaremail', [UsuarioController::class, 'validarEmail']);
 
 Route::get('moderador', [ModeradorController::class, 'get_all']);
 Route::get('moderador/{email}', [ModeradorController::class, 'get']);
@@ -46,4 +48,9 @@ Route::post('foto', [FotoController::class, 'create']);
 Route::put('foto/{id}', [FotoController::class, 'update']);
 Route::delete('foto/{id}', [FotoController::class, 'delete']);
 
-Route::post('validaremail', [UsuarioController::class, 'validarEmail']);
+Route::get('comentario', [ComentarioController::class, 'get_all']);
+Route::get('comentario/{id}', [ComentarioController::class, 'get']);
+Route::post('comentario', [ComentarioController::class, 'create']);
+Route::put('comentario/{id}', [ComentarioController::class, 'update']);
+Route::delete('comentario/{id}', [ComentarioController::class, 'delete']);
+
