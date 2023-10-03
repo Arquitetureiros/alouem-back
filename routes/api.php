@@ -45,3 +45,5 @@ Route::get('foto/{id}', [FotoController::class, 'get']);
 Route::post('foto', [FotoController::class, 'create']);
 Route::put('foto/{id}', [FotoController::class, 'update']);
 Route::delete('foto/{id}', [FotoController::class, 'delete']);
+
+Route::post('validaremail', [UsuarioController::class, 'validarEmail']);
