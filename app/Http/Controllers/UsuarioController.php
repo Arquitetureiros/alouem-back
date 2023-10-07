@@ -95,4 +95,27 @@ class UsuarioController extends Controller
                 404);
         }
     }
+
+    public function validarEmail(Request $request){
+
+        $pattern = '/^ra\d+@uem\.br$/';
+        
+        if(preg_match($pattern, $request->email)){
+            return response()->json(
+                [
+                    "message" => "email validado com sucesso",
+                    "success" => true
+                ],
+                200
+            );
+        } else {
+            return response()->json(
+                [
+                    "message" => "email invalido",
+                    "success" => false
+                ],
+                422
+            );
+        }
+    }
 }

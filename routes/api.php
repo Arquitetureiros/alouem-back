@@ -28,6 +28,7 @@ Route::get('usuario/{id}', [UsuarioController::class, 'get']);
 Route::post('usuario', [UsuarioController::class, 'create']);
 Route::put('usuario/{id}', [UsuarioController::class, 'update']);
 Route::delete('usuario/{id}', [UsuarioController::class, 'delete']);
+Route::post('validaremail', [UsuarioController::class, 'validarEmail']);
 
 Route::get('moderador', [ModeradorController::class, 'get_all']);
 Route::get('moderador/{email}', [ModeradorController::class, 'get']);
@@ -52,3 +53,4 @@ Route::get('comentario/{id}', [ComentarioController::class, 'get']);
 Route::post('comentario', [ComentarioController::class, 'create']);
 Route::put('comentario/{id}', [ComentarioController::class, 'update']);
 Route::delete('comentario/{id}', [ComentarioController::class, 'delete']);
+
