@@ -32,6 +32,23 @@ class ComentarioController extends Controller
         }
     }
 
+    public function get_publicacao($id)
+    {
+        if(Comentario::where('fk_IdPublicacao', $id)->exists())
+        {
+            $comentarios = Comentario::where('fk_IdPublicacao', $id)->get()->toJson(JSON_PRETTY_PRINT);
+            return response($comentarios, 200);
+        }
+        else
+        {
+            return response()->json(
+                [
+                    "message" => "comentario não encontrado."
+                ],
+                404);
+        }
+    }
+
     public function create(Request $request)
     {
         $comentario = new Comentario;
