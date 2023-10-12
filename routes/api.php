@@ -8,6 +8,7 @@ use App\Http\Controllers\ModeradorController;
 use App\Http\Controllers\PublicacaoController;
 use App\Http\Controllers\FotoController;
 use App\Http\Controllers\ComentarioController;
+use App\Http\Controllers\Auth;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -18,6 +19,7 @@ use App\Http\Controllers\ComentarioController;
 | be assigned to the "api" middleware group. Make something great!
 |
 */
+Route::post('login', [Auth::class, 'login']);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
