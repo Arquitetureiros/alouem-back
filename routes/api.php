@@ -40,6 +40,7 @@ Route::delete('moderador/{email}', [ModeradorController::class, 'delete']);
 
 Route::get('publicacao', [PublicacaoController::class, 'get_all']);
 Route::get('publicacao/{id}', [PublicacaoController::class, 'get']);
+Route::get('publicacao/usuario/{id}', [PublicacaoController::class, 'get_usuario']);
 Route::post('publicacao', [PublicacaoController::class, 'create']);
 Route::put('publicacao/{id}', [PublicacaoController::class, 'update']);
 Route::delete('publicacao/{id}', [PublicacaoController::class, 'delete']);
