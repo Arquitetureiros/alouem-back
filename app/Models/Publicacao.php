@@ -18,6 +18,6 @@ class Publicacao extends Model
     public $timestamps = false;
 
     public function comentarios(){
-        return $this->hasMany(Comentario::class, "IdPublicacao", "IdPublicacao");
+        return $this->hasMany(Comentario::class, "fk_IdPublicacao", "IdPublicacao");
     }
 }
