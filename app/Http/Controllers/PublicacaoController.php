@@ -19,7 +19,9 @@ class PublicacaoController extends Controller
     {
         if(Publicacao::where('IdPublicacao', $id)->exists())
         {
-            $publicacao = Publicacao::where('IdPublicacao', $id)->get()->toJson(JSON_PRETTY_PRINT);
+            $publicacao = Publicacao::where('IdPublicacao', $id)
+            ->with(['comentarios'])
+            ->first()->toJson(JSON_PRETTY_PRINT);
             return response($publicacao, 200);
         }
         else
