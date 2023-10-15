@@ -101,4 +101,15 @@ class PublicacaoController extends Controller
                 404);
         }
     }
+
+    public function getRevisao(){
+
+        $publicacoes = Publicacao::where('statusModerador', '3')->get();
+
+        return response()->json(
+            [
+                'data' => $publicacoes,
+            ], 200
+        );
+    }
 }
