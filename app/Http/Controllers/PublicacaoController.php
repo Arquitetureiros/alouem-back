@@ -10,7 +10,10 @@ class PublicacaoController extends Controller
 {
     public function get_all()
     {
-        $publicacoes = Publicacao::get()->toJson(JSON_PRETTY_PRINT);
+        $publicacoes = Publicacao::get()
+        ->with(['comentarios'])
+        ->with(['fotos'])
+        ->toJson(JSON_PRETTY_PRINT);
 
         return response($publicacoes, 200);
     }
@@ -21,8 +24,26 @@ class PublicacaoController extends Controller
         {
             $publicacao = Publicacao::where('IdPublicacao', $id)
             ->with(['comentarios'])
+            ->with(['fotos'])
             ->first()->toJson(JSON_PRETTY_PRINT);
             return response($publicacao, 200);
+        }
+        else
+        {
+            return response()->json(
+                [
+                    "message" => "publicacao não encontrada."
+                ],
+                404);
+        }
+    }
+
+    public function get_usuario($id)
+    {
+        if(Publicacao::where('fk_IdUsuario', $id)->exists())
+        {
+            $publicacoes = Publicacao::where('fk_IdUsuario', $id)->get()->toJson(JSON_PRETTY_PRINT);
+            return response($publicacoes, 200);
         }
         else
         {

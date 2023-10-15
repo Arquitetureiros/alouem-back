@@ -20,4 +20,8 @@ class Publicacao extends Model
     public function comentarios(){
         return $this->hasMany(Comentario::class, "fk_IdPublicacao", "IdPublicacao");
     }
+
+    public function fotos(){
+        return $this->hasMany(Foto::class, "fk_IdPublicacao", "IdPublicacao");
+    }
 }
