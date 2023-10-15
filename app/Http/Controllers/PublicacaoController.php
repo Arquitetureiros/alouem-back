@@ -45,7 +45,8 @@ class PublicacaoController extends Controller
         $publicacao->save();
 
         return response()->json([
-            "message" => "publicacao criada com sucesso."
+            "id" => $publicacao->IdPublicacao,
+            "message" => "publicacão criada com sucesso."
         ], 201);
     }
 

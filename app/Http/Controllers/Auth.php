@@ -18,9 +18,10 @@ class Auth extends Controller
         if($usuario || $moderador){
             $pessoa = $usuario ? $usuario : $moderador;
             $tipo = $usuario ? 'usuario' : 'moderador';
+            $pessoa->tipo = $tipo;
+            $pessoa->senha = null;
 
             $response = $this->makeJwt($pessoa, $tipo);
-
             return response()->json(
                 [
                     "message" => "login realizado com sucesso",
