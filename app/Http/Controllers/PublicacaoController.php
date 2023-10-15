@@ -10,9 +10,9 @@ class PublicacaoController extends Controller
 {
     public function get_all()
     {
-        $publicacoes = Publicacao::get()
-        ->with(['comentarios'])
+        $publicacoes = Publicacao::with(['comentarios'])
         ->with(['fotos'])
+        ->get()
         ->toJson(JSON_PRETTY_PRINT);
 
         return response($publicacoes, 200);
