@@ -34,6 +34,23 @@ class PublicacaoController extends Controller
         }
     }
 
+    public function get_usuario($id)
+    {
+        if(Publicacao::where('fk_IdUsuario', $id)->exists())
+        {
+            $publicacoes = Publicacao::where('fk_IdUsuario', $id)->get()->toJson(JSON_PRETTY_PRINT);
+            return response($publicacoes, 200);
+        }
+        else
+        {
+            return response()->json(
+                [
+                    "message" => "publicacao não encontrada."
+                ],
+                404);
+        }
+    }
+
     public function create(Request $request)
     {
         $publicacao = new Publicacao;
