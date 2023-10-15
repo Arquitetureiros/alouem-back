@@ -16,4 +16,8 @@ class Publicacao extends Model
     protected $fillable = [ "Titulo", "descricao", "Endereco", "fk_IdEstado", "VotosPositivos", "VotosNegativos", "fk_IdUsuario"];
 
     public $timestamps = false;
+
+    public function comentarios(){
+        return $this->hasMany(Comentario::class, "IdPublicacao", "IdPublicacao");
+    }
 }
