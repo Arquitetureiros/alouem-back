@@ -10,7 +10,10 @@ class PublicacaoController extends Controller
 {
     public function get_all()
     {
-        $publicacoes = Publicacao::get()->toJson(JSON_PRETTY_PRINT);
+        $publicacoes = Publicacao::get()
+        ->with(['comentarios'])
+        ->with(['fotos'])
+        ->toJson(JSON_PRETTY_PRINT);
 
         return response($publicacoes, 200);
     }
@@ -21,6 +24,7 @@ class PublicacaoController extends Controller
         {
             $publicacao = Publicacao::where('IdPublicacao', $id)
             ->with(['comentarios'])
+            ->with(['fotos'])
             ->first()->toJson(JSON_PRETTY_PRINT);
             return response($publicacao, 200);
         }
