@@ -107,7 +107,7 @@ class PublicacaoController extends Controller
 
     public function getRevisao(){
 
-        $publicacoes = Publicacao::where('statusModerador', '3')->get();
+        $publicacoes = Publicacao::where('fk_IdEstado', '3')->get();
 
         return response()->json(
             [
