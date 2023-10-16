@@ -138,6 +138,20 @@ class PublicacaoController extends Controller
         );
     }
 
+    public function getAprovadas(){
+
+        $publicacoes = Publicacao::where('fk_IdEstado', '4')
+        ->with(['comentarios'])
+        ->with(['fotos'])
+        ->get();
+
+        return response()->json(
+            [
+                'data' => $publicacoes,
+            ], 200
+        );
+    }
+
     public function revisarPublicacao(Request $request){
 
             $publicacao = Publicacao::find($request->idPublicacao);
