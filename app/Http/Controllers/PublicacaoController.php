@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\Publicacao;
+use App\Models\Alteracao;
 
 class PublicacaoController extends Controller
 {
@@ -124,5 +125,45 @@ class PublicacaoController extends Controller
                 ],
                 404);
         }
+    }
+
+    public function getRevisao(){
+
+        $publicacoes = Publicacao::where('fk_IdEstado', '3')->get();
+
+        return response()->json(
+            [
+                'data' => $publicacoes,
+            ], 200
+        );
+    }
+
+    public function revisarPublicacao(Request $request){
+
+            $publicacao = Publicacao::find($request->idPublicacao);
+
+            if($publicacao){
+                $publicacao->fk_IdEstado = $request->status;
+                $publicacao->save();
+
+                if($request->alteracao){
+                    $alteracao = new Alteracao();
+                    $alteracao->idPublicacao = $request->idPublicacao;
+                    $alteracao->descricao = $request->alteracao;
+                    $alteracao->save();
+                }
+
+                return response()->json(
+                    [
+                        'message' => 'Publicação revisada com sucesso!',
+                    ], 200
+                );
+            }else{
+                return response()->json(
+                    [
+                        'message' => 'Publicação não encontrada!',
+                    ], 404
+                );
+            }
     }
 }
