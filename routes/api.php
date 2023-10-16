@@ -44,7 +44,9 @@ Route::get('publicacao/usuario/{id}', [PublicacaoController::class, 'get_usuario
 Route::post('publicacao', [PublicacaoController::class, 'create']);
 Route::put('publicacao/{id}', [PublicacaoController::class, 'update']);
 Route::delete('publicacao/{id}', [PublicacaoController::class, 'delete']);
+
 Route::get('revisao/publicacao', [PublicacaoController::class, 'getRevisao']);
+Route::post('revisao/publicacao', [PublicacaoController::class, 'revisarPublicacao']);
 
 Route::get('foto', [FotoController::class, 'get_all']);
 Route::get('foto/{id}', [FotoController::class, 'get']);
