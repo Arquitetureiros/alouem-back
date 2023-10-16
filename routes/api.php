@@ -59,6 +59,7 @@ Route::delete('foto/{id}', [FotoController::class, 'delete']);
 Route::get('comentario', [ComentarioController::class, 'get_all']);
 Route::get('comentario/{id}', [ComentarioController::class, 'get']);
 Route::get('comentario/publicacao/{id}', [ComentarioController::class, 'get_publicacao']);
+Route::get('comentario/usuario/{id}', [ComentarioController::class, 'get_usuario']);
 Route::post('comentario', [ComentarioController::class, 'create']);
 Route::put('comentario/{id}', [ComentarioController::class, 'update']);
 Route::delete('comentario/{id}', [ComentarioController::class, 'delete']);
